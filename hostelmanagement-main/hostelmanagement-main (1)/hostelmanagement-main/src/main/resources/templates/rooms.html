@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Management</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            background: #f3f5f9;
+            color: #263445;
+        }
+        header {
+            background: #142d4e;
+            color: white;
+            padding: 22px 35px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #142d4e;
+        }
+        .btn {
+            display: inline-block;
+            background: #142d4e;
+            color: white;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #244c78;
+        }
+        .panel {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(20, 45, 78, 0.08);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #e2e7ef;
+        }
+        th {
+            background: #eaf0f7;
+            color: #142d4e;
+        }
+        .status {
+            color: #657386;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #657386;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Hostel Management System</h1>
+</header>
+<main class="container">
+    <div class="top-bar">
+        <div>
+            <h2>Room Management</h2>
+            <p>View room details and availability.</p>
+        </div>
+        <a href="/dashboard" class="btn">Back to Dashboard</a>
+    </div>
+    <section class="panel">
+        <h3>Room Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Room Number</th>
+                    <th>Room Type</th>
+                    <th>Capacity</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        No room records available yet.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="status">
+            Room records and availability features will be added later.
+        </p>
+    </section>
+</main>
+<footer>
+    &copy; 2026 Hostel Management System
+</footer>
+</body>
+</html>

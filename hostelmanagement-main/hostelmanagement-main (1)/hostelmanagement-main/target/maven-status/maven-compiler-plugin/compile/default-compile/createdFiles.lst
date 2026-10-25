@@ -1,0 +1,8 @@
+com\hostel\hostelmanagement\model\Admin.class
+com\hostel\hostelmanagement\repository\AdminRepository.class
+com\hostel\hostelmanagement\HostelmanagementApplication.class
+com\hostel\hostelmanagement\controller\HomeController.class
+com\hostel\hostelmanagement\controller\StudentController.class
+com\hostel\hostelmanagement\model\Student.class
+com\hostel\hostelmanagement\config\AdminDataInitializer.class
+com\hostel\hostelmanagement\repository\StudentRepository.class

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            background: #f3f5f9;
+            color: #263445;
+        }
+        header {
+            background: #142d4e;
+            color: white;
+            padding: 22px 35px;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        h2 {
+            color: #142d4e;
+        }
+        .panel {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(20, 45, 78, 0.08);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #263445;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd5e0;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #142d4e;
+        }
+        .btn {
+            display: inline-block;
+            background: #142d4e;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 15px;
+        }
+        .btn:hover {
+            background: #244c78;
+        }
+        .note {
+            margin-top: 18px;
+            color: #657386;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #657386;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Hostel Management System</h1>
+</header>
+<main class="container">
+    <div class="top-bar">
+        <div>
+            <h2>Room Booking</h2>
+            <p>Enter the details to request a hostel room.</p>
+        </div>
+        <a href="/dashboard" class="btn">Back to Dashboard</a>
+    </div>
+    <section class="panel">
+        <form action="/book-room" method="post">
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" name="studentName"
+                       placeholder="Enter student name" required>
+            </div>
+            <div class="form-group">
+                <label for="studentId">Student ID</label>
+                <input type="text" id="studentId" name="studentId"
+                       placeholder="Enter student ID" required>
+            </div>
+            <div class="form-group">
+                <label for="roomType">Room Type</label>
+                <select id="roomType" name="roomType" required>
+                    <option value="">Select room type</option>
+                    <option value="Single">Single Room</option>
+                    <option value="Double">Double Sharing</option>
+                    <option value="Triple">Triple Sharing</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="checkIn">Check-in Date</label>
+                <input type="date" id="checkIn" name="checkIn" required>
+            </div>
+            <button type="submit" class="btn">Submit Booking</button>
+        </form>
+        <p class="note">
+            Note: Booking submission and room allocation will be connected
+            to the backend later.
+        </p>
+    </section>
+</main>
+<footer>
+    &copy; 2026 Hostel Management System
+</footer>
+</body>
+</html>

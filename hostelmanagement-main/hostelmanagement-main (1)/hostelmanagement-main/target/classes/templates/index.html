@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #263445;
+        }
+        header {
+            background: #123b52;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        nav a:hover {
+            color: #8fd3ff;
+        }
+        .hero {
+            min-height: 72vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #dcecf3, #ffffff);
+        }
+        .hero-content {
+            max-width: 850px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #123b52;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+        .login-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .login-card {
+            width: 230px;
+            padding: 25px;
+            background: white;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px #123b5215;
+            transition: 0.25s;
+        }
+        .login-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px #123b5225;
+        }
+        .login-icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+        .login-card h3 {
+            color: #123b52;
+            margin-bottom: 10px;
+        }
+        .login-card p {
+            font-size: 14px;
+            color: #667788;
+            margin-bottom: 18px;
+        }
+        .btn {
+            display: inline-block;
+            background: #123b52;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 7px;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+        .btn:hover {
+            background: #17617c;
+        }
+        .student-btn {
+            background: #17617c;
+        }
+        .student-btn:hover {
+            background: #123b52;
+        }
+        .register-btn {
+            display: inline-block;
+            margin-top: 25px;
+            color: #123b52;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .features {
+            padding: 45px 8%;
+            text-align: center;
+        }
+        .features h2 {
+            color: #123b52;
+            margin-bottom: 25px;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px #00000010;
+        }
+        .card h3 {
+            color: #17617c;
+            margin-bottom: 12px;
+        }
+        .card p {
+            line-height: 1.6;
+        }
+        footer {
+            background: #123b52;
+            color: white;
+            text-align: center;
+            padding: 18px;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+            header {
+                flex-direction: column;
+            }
+            nav a {
+                margin: 0 8px;
+            }
+            .login-card {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">
+        🏠 Hostel Management
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/register">Register</a>
+    </nav>
+</header>
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            Hostel Room Allocation
+            & Vacancy Registration System
+        </h1>
+        <p>
+            A smart and simple platform for hostel registration,
+            room allocation, and vacancy management.
+            Manage your hostel activities through one convenient system.
+        </p>
+        <!-- Separate Login Options -->
+        <div class="login-section">
+            <!-- Admin Login -->
+            <div class="login-card">
+                <div class="login-icon">
+                    👨‍💼
+                </div>
+                <h3>
+                    Admin Login
+                </h3>
+                <p>
+                    Access the admin dashboard to manage students,
+                    rooms, bookings and hostel information.
+                </p>
+                <a href="/login" class="btn">
+                    Admin Login →
+                </a>
+            </div>
+            <!-- Student Login -->
+            <div class="login-card">
+                <div class="login-icon">
+                    🎓
+                </div>
+                <h3>
+                    Student Login
+                </h3>
+                <p>
+                    Login to your student account to view rooms,
+                    bookings, payments and hostel information.
+                </p>
+                <a href="/student-login"
+                   class="btn student-btn">
+                    Student Login →
+                </a>
+            </div>
+        </div>
+        <a href="/register" class="register-btn">
+            New student? Register here →
+        </a>
+    </div>
+</section>
+<section class="features">
+    <h2>
+        Our Features
+    </h2>
+    <div class="cards">
+        <div class="card">
+            <h3>
+                🎓 Student Registration
+            </h3>
+            <p>
+                Create an account and apply for hostel accommodation.
+            </p>
+        </div>
+        <div class="card">
+            <h3>
+                🛏️ Room Availability
+            </h3>
+            <p>
+                View available rooms and current hostel vacancies.
+            </p>
+        </div>
+        <div class="card">
+            <h3>
+                📋 Room Allocation
+            </h3>
+            <p>
+                Manage applications and room assignments efficiently.
+            </p>
+        </div>
+    </div>
+</section>
+<footer>
+    <p>
+        &copy; 2026 Hostel Room Allocation System
+    </p>
+</footer>
+</body>
+</html>

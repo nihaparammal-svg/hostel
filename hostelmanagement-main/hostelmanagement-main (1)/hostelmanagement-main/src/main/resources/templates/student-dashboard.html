@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | HostelHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+        body {
+            background: #f3f5f9;
+            color: #263445;
+        }
+        .sidebar {
+            position: fixed;
+            width: 240px;
+            height: 100vh;
+            background: #142d4e;
+            color: white;
+            padding: 30px 20px;
+        }
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 45px;
+        }
+        .brand span {
+            color: #8fc5ff;
+        }
+        .menu-title {
+            color: #aabbd0;
+            font-size: 12px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .nav-link {
+            display: block;
+            color: #d8e3f1;
+            text-decoration: none;
+            padding: 14px;
+            margin-bottom: 9px;
+            border-radius: 9px;
+            transition: 0.25s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            background: #29486d;
+            color: white;
+        }
+        .logout {
+            position: absolute;
+            bottom: 25px;
+            left: 20px;
+            right: 20px;
+        }
+        .main {
+            margin-left: 240px;
+            padding: 35px;
+        }
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .topbar h2 {
+            color: #142d4e;
+            font-size: 26px;
+        }
+        .topbar p {
+            color: #778399;
+            margin-top: 7px;
+        }
+        .profile {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #142d4e0d;
+            font-weight: 600;
+        }
+        .welcome {
+            background: linear-gradient(120deg, #142d4e, #3474b5);
+            color: white;
+            padding: 38px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px #142d4e20;
+        }
+        .welcome h1 {
+            font-size: 30px;
+            margin-bottom: 14px;
+        }
+        .welcome p {
+            color: #e0ebf8;
+            line-height: 1.8;
+            max-width: 600px;
+        }
+        .section-title {
+            color: #142d4e;
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+        .summary-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px #142d4e08;
+            transition: 0.25s;
+        }
+        .summary-card:hover,
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px #142d4e12;
+        }
+        .summary-card .icon {
+            font-size: 30px;
+            margin-bottom: 17px;
+        }
+        .summary-card h3 {
+            color: #142d4e;
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+        .summary-card p,
+        .service-card p {
+            color: #778399;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+        .service-card {
+            background: white;
+            padding: 27px;
+            border-radius: 14px;
+            box-shadow: 0 4px 18px #142d4e08;
+            transition: 0.25s;
+        }
+        .service-card h3 {
+            color: #142d4e;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            margin-bottom: 22px;
+        }
+        .btn {
+            display: inline-block;
+            background: #142d4e;
+            color: white;
+            text-decoration: none;
+            padding: 11px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: 0.25s;
+        }
+        .btn:hover {
+            background: #3474b5;
+        }
+        footer {
+            text-align: center;
+            padding: 35px 0 10px;
+            color: #778399;
+            font-size: 13px;
+        }
+        @media (max-width: 900px) {
+            .sidebar {
+                width: 200px;
+            }
+            .main {
+                margin-left: 200px;
+                padding: 22px;
+            }
+            .summary-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 650px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+            }
+            .brand {
+                margin-bottom: 20px;
+            }
+            .logout {
+                position: static;
+                margin-top: 10px;
+            }
+            .main {
+                margin-left: 0;
+                padding: 20px 14px;
+            }
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            .welcome {
+                padding: 25px;
+            }
+            .welcome h1 {
+                font-size: 24px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="brand">🏠 Hostel<span>Hub</span></div>
+        <div class="menu-title">Main Menu</div>
+        <a class="nav-link active" href="/student-dashboard">
+            ▦ &nbsp; Dashboard
+        </a>
+        <a class="nav-link" href="/rooms">
+            🛏️ &nbsp; Available Rooms
+        </a>
+        <a class="nav-link" href="/book-room">
+            📋 &nbsp; My Bookings
+        </a>
+        <a class="nav-link" href="/payments">
+            💳 &nbsp; My Payments
+        </a>
+        <a class="nav-link" href="/contact">
+            💬 &nbsp; Contact Us
+        </a>
+        <a class="nav-link logout" href="/student-logout">
+            ↪ &nbsp; Logout
+        </a>
+    </aside>
+    <main class="main">
+        <header class="topbar">
+            <div>
+                <h2>Student Dashboard</h2>
+                <p>Your personal hostel space</p>
+            </div>
+            <div class="profile">
+                👤
+                <span th:text="${student != null ? student.fullName : 'Student'}">
+                    Student
+                </span>
+            </div>
+        </header>
+        <section class="welcome">
+            <h1>
+                Welcome back,
+                <span th:text="${student.fullName}">
+                    Student
+                </span>! 👋
+            </h1>
+            <p>
+                Manage your hostel life in one place. Explore available rooms,
+                access your bookings and stay updated with your hostel information.
+            </p>
+        </section>
+        <h2 class="section-title">Your Overview</h2>
+        <section class="summary-grid">
+            <div class="summary-card">
+                <div class="icon">🛏️</div>
+                <h3>Available Rooms</h3>
+                <p>Explore available hostel rooms and accommodation options.</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">📋</div>
+                <h3>My Bookings</h3>
+                <p>Visit your booking section to manage accommodation requests.</p>
+            </div>
+            <div class="summary-card">
+                <div class="icon">💳</div>
+                <h3>My Payments</h3>
+                <p>Access the payment section to review hostel payment information.</p>
+            </div>
+        </section>
+        <h2 class="section-title">Hostel Services</h2>
+        <section class="services-grid">
+            <div class="service-card">
+                <h3>🏠 Available Rooms</h3>
+                <p>Find a suitable room for your hostel stay.</p>
+                <a class="btn" href="/rooms">Explore Rooms →</a>
+            </div>
+            <div class="service-card">
+                <h3>📋 My Bookings</h3>
+                <p>Access your room booking section.</p>
+                <a class="btn" href="/book-room">View Bookings →</a>
+            </div>
+            <div class="service-card">
+                <h3>💳 My Payments</h3>
+                <p>Visit your hostel payment section.</p>
+                <a class="btn" href="/payments">View Payments →</a>
+            </div>
+            <div class="service-card">
+                <h3>💬 Contact Us</h3>
+                <p>Find contact information for hostel assistance.</p>
+                <a class="btn" href="/contact">Get Help →</a>
+            </div>
+        </section>
+        <footer>
+            © 2026 Hostel Management System · Student Portal
+        </footer>
+    </main>
+</body>
+</html>

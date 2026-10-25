@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel Management System | Login</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #e8f0ff, #f5f7fb);
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar {
+        background: #173b70;
+        color: white;
+        padding: 20px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    .main-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+    .login-card {
+        width: 100%;
+        max-width: 420px;
+        background: white;
+        padding: 40px 35px;
+        border-radius: 16px;
+        box-shadow: 0 10px 35px rgba(23, 59, 112, 0.12);
+    }
+    .icon {
+        width: 65px;
+        height: 65px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background: #e8f0ff;
+        color: #173b70;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+    }
+    h1 {
+        text-align: center;
+        color: #173b70;
+        font-size: 27px;
+        margin-bottom: 10px;
+    }
+    .subtitle {
+        text-align: center;
+        color: #718096;
+        font-size: 14px;
+        margin-bottom: 30px;
+        line-height: 1.5;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #27364b;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    input {
+        width: 100%;
+        padding: 13px 14px;
+        border: 1px solid #d7deea;
+        border-radius: 8px;
+        outline: none;
+        font-size: 15px;
+        background: #fff;
+    }
+    input:focus {
+        border-color: #2864b4;
+        box-shadow: 0 0 0 3px rgba(40, 100, 180, 0.12);
+    }
+    .login-button {
+        width: 100%;
+        padding: 14px;
+        background: #173b70;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+    .login-button:hover {
+        background: #245395;
+    }
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 24px;
+        color: #2864b4;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .back-link:hover {
+        text-decoration: underline;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #718096;
+        font-size: 13px;
+    } 
+    @media (max-width: 480px) {
+        .navbar {
+            padding: 18px 20px;
+        }
+        .logo {
+            font-size: 18px;
+        }
+        .login-card {
+            padding: 30px 24px;
+        }
+    }
+</style>
+</head>
+<body>
+<header class="navbar">
+    <div class="logo">Hostel Management</div>
+    <a href="/" class="nav-link">Home</a>
+</header>
+<main class="main-container">
+    <section class="login-card">
+        <div class="icon">&#127970;</div>
+        <h1>Welcome Back!</h1>
+        <p class="subtitle">
+            Sign in to your Hostel Management System account.
+        </p>
+        <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+        <form action="/perform_login" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    autocomplete="username"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+            </div>
+            <button type="submit" class="login-button">
+                Sign In
+            </button>
+        </form>
+        <a href="/" class="back-link">← Back to Homepage</a>
+    </section>
+</main>
+<footer>
+    &copy; 2026 Hostel Management System. All rights reserved.
+</footer>
+</body>
+</html>

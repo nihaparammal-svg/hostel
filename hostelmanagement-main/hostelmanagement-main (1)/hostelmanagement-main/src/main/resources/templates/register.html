@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            margin: 0;
+            background: #f3f5f9;
+            color: #263445;
+        }
+        header {
+            background: #142d4e;
+            color: white;
+            padding: 22px 35px;
+        }
+        .container {
+            max-width: 650px;
+            margin: 35px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(20, 45, 78, 0.08);
+        }
+        h2 {
+            color: #142d4e;
+            margin-top: 0;
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd5e0;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        .btn {
+            width: 100%;
+            padding: 13px;
+            background: #142d4e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #244c78;
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        a {
+            color: #142d4e;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Hostel Management System</h1>
+</header>
+<main class="container">
+    <h2>Student Registration</h2>
+    <p>Create an account to register as a hostel student.</p>
+    <form action="/register" method="post">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" name="studentId" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Create Password</label>
+            <input type="password" id="password" name="password"
+                   minlength="8" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="login-link">
+        Already registered? <a href="/login">Login here</a>
+    </div>
+</main>
+</body>
+</html>

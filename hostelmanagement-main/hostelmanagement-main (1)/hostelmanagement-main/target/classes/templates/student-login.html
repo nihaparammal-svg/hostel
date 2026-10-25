@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login | Hostel Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #f3f5f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .login-container {
+            background: white;
+            width: 380px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #142d4e;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #667085;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #263445;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #d0d5dd;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #142d4e;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #203f68;
+        }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #142d4e;
+            text-decoration: none;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: #c62828;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Student Login</h2>
+        <p class="subtitle">Login to your student account</p>
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+        <form action="/student-login" method="post">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="Enter your registered email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Enter your password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="links">
+            <p>Don't have an account?
+                <a href="/register">Register here</a>
+            </p>
+            <p style="margin-top: 12px;">
+                <a href="/login">Admin Login</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
